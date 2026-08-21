@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Glass Popup</title>
+    <style>
+        /* Base page styling with a background gradient so you can see the blur working */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+            height: 100vh;
+        }
+
+        /* The dark semi-transparent overlay behind the popup */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* The WHITE Glassmorphism popup box */
+        .modal-box {
+            /* 1. Milky white transparent background */
+            background-color: rgba(255, 255, 255, 0.75);
+            
+            /* 2. Frosted glass blur effect */
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%); /* For Safari/iOS */
+            
+            /* 3. Solid white borders to define the glass edges */
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            
+            /* 4. Soft shadow to lift it off the background */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+            border-radius: 14px;
+            width: 80%;
+            max-width: 320px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* The space for your custom message */
+        .modal-content {
+            padding: 24px;
+            flex-grow: 1;
+            font-size: 16px;
+            color: #333; /* Dark text for readability on white glass */
+            line-height: 1.5;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .modal-content p {
+            margin: 0;
+        }
+
+        /* The bottom area for buttons, aligned to the right */
+        .modal-actions {
+            padding: 8px 16px 16px 16px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        /* Styling for the text buttons */
+        .action-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #007AFF; /* iOS Blue */
+            font-weight: 500;
+            cursor: pointer;
+            padding: 8px 0;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .action-btn:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The Popup Modal -->
+    <div class="modal-overlay" id="customPopup">
+        <div class="modal-box">
+            
+            <!-- CUSTOM MESSAGE AREA -->
+            <div class="modal-content">
+                <h3>Notice</h3>
+                <p>mytext.</p>
+            </div>
+            
+            <!-- BUTTONS -->
+            <div class="modal-actions">
+                <button class="action-btn" onclick="closePopup()">Cancel</button>
+                <a href="tel:+1(855)733-8817" class="action-btn">Call Now</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Function to close the popup when 'Cancel' is clicked
+        function closePopup() {
+            document.getElementById('customPopup').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
